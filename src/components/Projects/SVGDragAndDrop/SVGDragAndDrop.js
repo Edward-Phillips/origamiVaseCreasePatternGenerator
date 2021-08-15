@@ -12,8 +12,10 @@ export default function SVGDragAndDrop() {
   }
 
   const handleMouseUp = (event) => {
-    console.log("click released");
-    setDragging(false);
+    if (dragging) {
+      console.log("click released");
+      setDragging(false);
+    }
   }
 
   const handleMouseMove = (event) => {
