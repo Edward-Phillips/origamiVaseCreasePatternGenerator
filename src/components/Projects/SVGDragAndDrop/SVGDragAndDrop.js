@@ -7,13 +7,11 @@ export default function SVGDragAndDrop() {
   const [dragging, setDragging] = React.useState(false);
 
   const handleClick = (event) => {
-    console.log("circle has been clicked");
     setDragging(true);
   }
 
   const handleMouseUp = (event) => {
     if (dragging) {
-      console.log("click released");
       setDragging(false);
     }
   }
@@ -21,7 +19,6 @@ export default function SVGDragAndDrop() {
   const handleMouseMove = (event) => {
     if (dragging) {
       const coords = getMousePosition(event);
-      console.log(event);
       setCx(coords.x);
       setCy(coords.y);
     }
