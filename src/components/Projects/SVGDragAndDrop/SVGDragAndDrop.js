@@ -1,16 +1,15 @@
 import React from "react";
 
-export default function SVGDragAndDrop() {
 
-  const [cx, setCx] = React.useState(50);
-  const [cy, setCy] = React.useState(50);
+export default function SVGDragAndDrop({coords, setCoords}) {
+
   const [dragging, setDragging] = React.useState(false);
 
-  const handleClick = (event) => {
+  const handleClick = () => {
     setDragging(true);
   }
 
-  const handleMouseUp = (event) => {
+  const handleMouseUp = () => {
     if (dragging) {
       setDragging(false);
     }
@@ -18,23 +17,25 @@ export default function SVGDragAndDrop() {
 
   const handleMouseMove = (event) => {
     if (dragging) {
-      const coords = getMousePosition(event);
-      setCx(coords.x);
-      setCy(coords.y);
+      const newCoords = getNewCoords(event);
+      setCoords(coords.key, newCoords);
     }
   }
 
   const getMousePosition = (event) => {
     const screenCTM = event.target.getScreenCTM();
     return {
-      x: (event.clientX - screenCTM.e) / screenCTM.a,
-      y: (event.clientY - screenCTM.f) / screenCTM.d
+      cx: (event.clientX - screenCTM.e) / screenCTM.a,
+      cy: (event.clientY - screenCTM.f) / screenCTM.d,
     };
   }
 
+  const getNewCoords = (event) => {
+    const { cx, cy } = getMousePosition(event);
+    return { cx , cy, key: coords.key };
+  }
+
   return (
-    <svg viewBox="0 0 100 100">
-      <circle style={{cursor: "move"}} onMouseDown={handleClick} onMouseUp={handleMouseUp} onMouseMove={handleMouseMove} onMouseLeave={handleMouseUp} cx={cx} cy={cy} r="10" />
-    </svg>
+      <circle style={{cursor: "move"}} onMouseDown={handleClick} onMouseUp={handleMouseUp} onMouseMove={handleMouseMove} onMouseLeave={handleMouseUp} cx={coords.cx} cy={coords.cy} r="5" />
   )
 }
