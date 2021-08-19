@@ -24,6 +24,7 @@ export default function SVGDragAndDrop({coords, setCoords}) {
 
   const getMousePosition = (event) => {
     const screenCTM = event.target.getScreenCTM();
+    if (event.touches) {event = event.touches[0]}
     return {
       cx: (event.clientX - screenCTM.e) / screenCTM.a,
       cy: (event.clientY - screenCTM.f) / screenCTM.d,
@@ -36,6 +37,6 @@ export default function SVGDragAndDrop({coords, setCoords}) {
   }
 
   return (
-      <circle style={{cursor: "move"}} onMouseDown={handleClick} onMouseUp={handleMouseUp} onMouseMove={handleMouseMove} onMouseLeave={handleMouseUp} cx={coords.cx} cy={coords.cy} r="5" />
+      <circle style={{cursor: "move", fill: "blue", opacity: "0.5"}} onMouseDown={handleClick} onMouseUp={handleMouseUp} onMouseMove={handleMouseMove} onMouseLeave={handleMouseUp} onTouchStart={handleClick} onTouchMove={handleMouseMove} onTouchEnd={handleMouseUp} onTouchLeave={handleMouseUp} onTouchCancel={handleMouseUp} cx={coords.cx} cy={coords.cy} r="5" />
   )
 }
