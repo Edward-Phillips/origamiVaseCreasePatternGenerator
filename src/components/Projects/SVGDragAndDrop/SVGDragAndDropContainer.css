@@ -1,0 +1,5 @@
+
+.SVGOuterContainer {
+  display: grid;
+  grid-template-areas: "SVG controls";
+}
