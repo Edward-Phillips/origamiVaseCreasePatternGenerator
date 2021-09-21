@@ -1,0 +1,10 @@
+.svgWrapper {
+  transform: rotate(180deg);
+  display: flex;
+  width: 50%;
+  margin: auto;
+}
+
+.creasePatternSVG {
+  flex: 1;
+}

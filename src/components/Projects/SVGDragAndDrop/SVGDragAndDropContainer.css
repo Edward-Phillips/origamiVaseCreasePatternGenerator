@@ -3,3 +3,22 @@
   display: grid;
   grid-template-areas: "SVG controls";
 }
+
+.SVGControls {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, 30px);
+  row-gap: 10px;
+}
+
+.goreInputs {
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  padding-bottom: 10px;
+}
+
+.mainWrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+}
