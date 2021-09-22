@@ -13,3 +13,13 @@ The inspiration for this project comes from the work done by Rebecca Glieseking:
 To run this project locally, after cloning the repo:
 - run ```npm install```
 - run ```npm start```
+
+
+## Feature Roadmap
+
+- color coded crease pattern:
+  - instead of being all black, the lines indicating a fold will be color coded red for a mountain fold /\ and blue for a valley fold \\/
+- downloadable as SVG
+  - you will be able to download the .svg file at a click of a button
+- origamisimulator.org integration
+  - this is more a of a pipe dream but ultimately if would be wonderful to use the software developed at origamisimulator.org to display what the crease pattern will ultimately look like. Currently it doesn't look like they have a library/API that can be accessed to do this, but when I reach this stage in the project I will write to the origamisimulator.org team to see if it is possible to integrate their software into this project.
